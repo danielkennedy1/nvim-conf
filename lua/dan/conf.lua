@@ -21,17 +21,10 @@ vim.api.nvim_exec(
         false
       )
 
--- Set clipboard manager
-vim.g.clipboard = {
-  copy = {
-    ["+"] = "win32yank.exe -i --crlf",
-    ["*"] = "win32yank.exe -i --crlf",
-  },
-  paste = {
-    ["+"] = "win32yank.exe -o --lf",
-    ["*"] = "win32yank.exe -o --lf",
-  },
-}
+-- Use system clipboard
+vim.cmd [[
+	set clipboard+=unnamedplus
+]]
 
 -- Enable powershell as default shell
 vim.opt.shell = "pwsh.exe -NoLogo"
@@ -43,3 +36,7 @@ vim.cmd [[
 		set shellquote= shellxquote=
   ]]
 
+-- Borders for floating windows
+vim.cmd [[
+  hi FloatBorder guifg=white
+]]
