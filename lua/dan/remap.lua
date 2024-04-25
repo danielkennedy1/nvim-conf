@@ -11,3 +11,6 @@ vim.keymap.set('n', '<A-k>', ':m .-2<CR>==')
 
 vim.keymap.set('x', '<A-j>', ":move '>+1<CR>gv-gv")
 vim.keymap.set('x', '<A-k>', ":move '<-2<CR>gv-gv")
+
+-- Disable highlight
+vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
