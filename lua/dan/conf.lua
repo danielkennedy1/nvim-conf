@@ -40,3 +40,25 @@ vim.cmd [[
 vim.cmd [[
   hi FloatBorder guifg=white
 ]]
+
+
+-- Set tab width to 4 spaces
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+
+vim.opt.wrap = false
+
+-- Get rid of swap and backup files
+vim.opt.swapfile = false
+vim.opt.backup = false
+
+-- Search stuff
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.updatetime = 50
+
+vim.opt.termguicolors = true
