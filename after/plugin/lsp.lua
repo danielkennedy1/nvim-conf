@@ -1,4 +1,10 @@
 local lsp = require("lsp-zero")
+lsp.preset("recommended")
+
+local barbeque = require("barbecue")
+barbeque.setup({
+    attach_navic = false
+})
 
 -- Navic - tells you where you are in the code
 local navic = require("nvim-navic")
@@ -47,7 +53,30 @@ navic.setup {
     end,
 }
 
-lsp.preset("recommended")
+
+local cmp = require('cmp')
+
+cmp.setup({
+    sources = {
+        { name = 'nvim_lsp' },
+    },
+    mapping = {
+        -- Navigate between completion items with <Tab> and <S-Tab>
+        ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = 'select' }),
+        ['<Tab>'] = cmp.mapping.select_next_item({ behavior = 'select' }),
+
+        -- Confirm completion with <Enter>,
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+
+        -- Close completion with <C-q> 
+        ['<C-q>'] = cmp.mapping.abort(),
+    },
+    snippet = {
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+        end,
+    },
+})
 lsp.setup()
 
 -- Mason - LSP, DAP, Linter and Formatters
@@ -70,7 +99,9 @@ require("mason-lspconfig").setup({
             require('lspconfig')[server_name].setup({
                 on_attach = function(client, bufnr)
                     -- Navic - tells you where you are in the code. Admittedly no idea if its working
-                    navic.attach(client, bufnr)
+                    if client.server_capabilities.documentSymbolProvider then
+                        navIc.attach(client, bufnr)
+                    end
 
                     -- Few keymaps and that cheers ThePrimeagen
                     local opts = { noremap = true, silent = true, buffer = bufnr }
