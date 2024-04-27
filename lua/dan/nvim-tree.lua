@@ -84,3 +84,4 @@ nvimtree.setup({
   --   indent_width = 1,
   -- },
 })
+

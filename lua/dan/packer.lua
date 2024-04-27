@@ -26,7 +26,7 @@ return require('packer').startup(function(use)
 		"folke/which-key.nvim",
 		config = function()
 			vim.o.timeout = true
-			vim.o.timeoutlen = 300
+			vim.o.timeoutlen = 800
 			require("which-key").setup {
 				-- your configuration comes here
 				-- or leave it empty to use the default settings
@@ -60,4 +60,5 @@ return require('packer').startup(function(use)
 		requires = "neovim/nvim-lspconfig"
 	}
     use('tpope/vim-fugitive')
+    use("akinsho/toggleterm.nvim")
 end)
