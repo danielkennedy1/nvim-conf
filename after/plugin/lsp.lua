@@ -68,7 +68,7 @@ cmp.setup({
         -- Confirm completion with <Enter>,
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
-        -- Close completion with <C-q> 
+        -- Close completion with <C-q>
         ['<C-q>'] = cmp.mapping.abort(),
     },
     snippet = {
@@ -89,7 +89,7 @@ require("mason").setup {
         "dan.conf",
     },
     treesitter = {
-        compilers = { "zig" },
+        compilers = { "zig" }, -- this is the only one that behaves itself
     },
 }
 
@@ -100,10 +100,9 @@ require("mason-lspconfig").setup({
                 on_attach = function(client, bufnr)
                     -- Navic - tells you where you are in the code. Admittedly no idea if its working
                     if client.server_capabilities.documentSymbolProvider then
-                        navIc.attach(client, bufnr)
+                        navic.attach(client, bufnr)
                     end
 
-                    -- Few keymaps and that cheers ThePrimeagen
                     local opts = { noremap = true, silent = true, buffer = bufnr }
 
                     -- Gotos
