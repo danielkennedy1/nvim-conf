@@ -93,6 +93,19 @@ require("mason").setup {
     },
 }
 
+require("lspconfig").pyright.setup({
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "workspace",
+            },
+        },
+    },
+    cmd = { "pyright-langserver", "--stdio", "--venvPath=." }
+})
+
 require("mason-lspconfig").setup({
     handlers = {
         function(server_name)
@@ -129,3 +142,4 @@ require("mason-lspconfig").setup({
         end,
     },
 })
+
