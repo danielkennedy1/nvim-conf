@@ -26,11 +26,7 @@ return require('packer').startup(function(use)
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 800
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
+            require("which-key").setup {}
         end
     }
     use {
@@ -88,5 +84,8 @@ return require('packer').startup(function(use)
                 cmp_autopairs.on_confirm_done()
             )
         end
+    }
+    use {
+        "p00f/clangd_extensions.nvim",
     }
 end)
