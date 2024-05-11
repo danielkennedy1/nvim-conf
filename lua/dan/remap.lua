@@ -14,3 +14,10 @@ vim.keymap.set('x', '<A-k>', ":move '<-2<CR>gv-gv")
 
 -- Disable highlight
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+
+-- Remap pane navigation, to accomodate for Harpoon
+vim.api.nvim_set_keymap('n', '<C-Up>', '<cmd>wincmd k<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-Down>', '<cmd>wincmd j<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-Left>', '<cmd>wincmd h<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-Right>', '<cmd>wincmd l<CR>', {silent = true})
+
