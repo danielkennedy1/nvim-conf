@@ -67,3 +67,5 @@ vim.opt.termguicolors = true
 -- Set up Ripgrep as the grep program
 vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 
+-- Set python privider
+vim.g.python3_host_prog = "C:/Users/danie/AppData/Local/Programs/Python/Python312/python.exe"
