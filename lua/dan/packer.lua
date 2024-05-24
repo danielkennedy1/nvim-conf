@@ -91,6 +91,7 @@ return require('packer').startup(function(use)
     use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim", config = function()
         require("todo-comments").setup {}
     end }
-    use 'mfussenegger/nvim-dap' -- TODO: Add configuration
+    use 'mfussenegger/nvim-dap'
+    use 'mfussenegger/nvim-dap-python'
     use { 'mhartington/formatter.nvim' }
 end)
