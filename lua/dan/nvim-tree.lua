@@ -7,6 +7,7 @@ vim.cmd([[
 
 local keymap = vim.keymap -- for conciseness
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+keymap.set("n", "<leader>E", ":NvimTreeFindFile<CR>") -- toggle file explorer
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
