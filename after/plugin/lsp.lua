@@ -104,7 +104,17 @@ require("lspconfig").pyright.setup({
         },
     },
     cmd = { "pyright-langserver", "--stdio", "--venvPath=." }
-})
+}
+)
+
+vim.filetype.add {
+  pattern = {
+    ['.*%.ya?ml'] = 'yaml.openapi',
+    ['.*%.json'] = 'json.openapi',
+  },
+}
+
+require("lspconfig").vacuum.setup({})
 
 require("mason-lspconfig").setup({
     handlers = {
