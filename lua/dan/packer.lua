@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
             -- LSP Support
             { 'neovim/nvim-lspconfig' },
             { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
+            { 'williamboman/mason-lspconfig.nvim', },
 
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },
@@ -91,15 +91,7 @@ return require('packer').startup(function(use)
     use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim", config = function()
         require("todo-comments").setup {}
     end }
-    use 'mfussenegger/nvim-dap'
-    use 'mfussenegger/nvim-dap-python'
     use { 'mhartington/formatter.nvim' }
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
-    }
     use({
         "Pocco81/auto-save.nvim",
         config = function()
@@ -113,4 +105,14 @@ return require('packer').startup(function(use)
             }
         end,
     })
+    use {
+        "williamboman/mason.nvim",
+        "mfussenegger/nvim-dap",
+        "jay-babu/mason-nvim-dap.nvim",
+    }
+    use 'mfussenegger/nvim-dap-python'
+    use {
+        "julianolf/nvim-dap-lldb",
+        dependencies = { "mfussenegger/nvim-dap" },
+    }
 end)
