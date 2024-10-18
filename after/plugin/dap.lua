@@ -1,32 +1,65 @@
 local dap = require("dap")
 require('mason-nvim-dap').setup()
-require("dap-lldb").setup({
-    codelldb_path = "C:/Users/danie/AppData/Local/nvim-data/mason/packages/codelldb/extension/adapter/codelldb.exe"
-})
+-- require("dap-lldb").setup({
+--     codelldb_path = "C:/Users/danie/AppData/Local/nvim-data/mason/packages/codelldb/extension/adapter/codelldb.exe"
+-- })
 
 -- C/C++
-dap.adapters.codelldb = {
-    name = "codelldb server",
-    type = 'server',
-    port = "${port}",
-    executable = {
-        command = "C:\\Users\\danie\\AppData\\Local\\nvim-data\\mason\\bin\\codelldb.cmd",
-        args = { "--port", "${port}" },
-    }
+-- dap.adapters.codelldb = {
+--     name = "codelldb server",
+--     type = 'server',
+--     port = "${port}",
+--     executable = {
+--         command = "C:\\Users\\danie\\AppData\\Local\\nvim-data\\mason\\bin\\codelldb.cmd",
+--         args = { "--port", "${port}" },
+--     }
+-- }
+-- dap.configurations.cpp = {
+--     {
+--         name = "cpp",
+--         type = "codelldb",
+--         request = "launch",
+--         program = function()
+--             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--         end,
+--         cwd = '${workspaceFolder}',
+--         externalTerminal = false,
+--         stopOnEntry = false,
+--         args = {}
+--     },
+-- }
+--
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
+  type = 'executable',
+  command = 'C:/Users/danie/AppData/Local/nvim-data/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7.exe',
+  options = {
+    detached = false
+  }
 }
 dap.configurations.cpp = {
-    {
-        name = "cpp",
-        type = "codelldb",
-        request = "launch",
-        program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}',
-        externalTerminal = false,
-        stopOnEntry = false,
-        args = {}
-    },
+  {
+    name = "Launch file",
+    type = "cppdbg",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopAtEntry = true,
+  },
+  {
+    name = 'Attach to gdbserver :1234',
+    type = 'cppdbg',
+    request = 'launch',
+    MIMode = 'gdb',
+    miDebuggerServerAddress = 'localhost:1234',
+    miDebuggerPath = '/usr/bin/gdb',
+    cwd = '${workspaceFolder}',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+  },
 }
 
 -- Python
