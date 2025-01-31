@@ -26,19 +26,13 @@ vim.cmd [[
 	set clipboard+=unnamedplus
 ]]
 
--- Enable powershell as default shell
-vim.opt.shell = "pwsh.exe -NoLogo"
-vim.opt.shellcmdflag =
-  "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-vim.cmd [[
-		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		set shellquote= shellxquote=
-  ]]
-
 -- Borders for floating windows
 vim.cmd [[
   hi FloatBorder guifg=white
+]]
+
+vim.cmd [[
+    set signcolumn=yes
 ]]
 
 

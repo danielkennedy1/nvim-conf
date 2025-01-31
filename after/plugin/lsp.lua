@@ -1,5 +1,5 @@
 local lsp = require("lsp-zero")
-lsp.preset("recommended")
+-- lsp.preset("recommended")
 
 local barbeque = require("barbecue")
 barbeque.setup({
@@ -87,11 +87,16 @@ require("mason").setup {
         "dan.nvim-tree",
         "dan.command",
         "dan.conf",
-    },
-    treesitter = {
-        compilers = { "zig" }, -- this is the only one that behaves itself
-    },
+    }
 }
+
+vim.filetype.add {
+  pattern = {
+    ['.*%.ya?ml'] = 'yaml.openapi',
+    ['.*%.json'] = 'json.openapi',
+  },
+}
+
 
 require("lspconfig").pyright.setup({
     settings = {
@@ -104,17 +109,18 @@ require("lspconfig").pyright.setup({
         },
     },
     cmd = { "pyright-langserver", "--stdio", "--venvPath=." }
-}
+    }
 )
 
-vim.filetype.add {
-  pattern = {
-    ['.*%.ya?ml'] = 'yaml.openapi',
-    ['.*%.json'] = 'json.openapi',
-  },
-}
-
 require("lspconfig").vacuum.setup({})
+
+require("lspconfig").terraformls.setup({})
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  pattern = {"*.tf", "*.tfvars"},
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
 
 require("mason-lspconfig").setup({
     handlers = {
