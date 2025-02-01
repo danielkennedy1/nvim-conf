@@ -1,5 +1,4 @@
 local lsp = require("lsp-zero")
-lsp.preset("recommended")
 
 local barbeque = require("barbecue")
 barbeque.setup({
@@ -87,9 +86,6 @@ require("mason").setup {
         "dan.nvim-tree",
         "dan.command",
         "dan.conf",
-    },
-    treesitter = {
-        compilers = { "zig" }, -- this is the only one that behaves itself
     },
 }
 

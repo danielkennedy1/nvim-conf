@@ -1,42 +1,12 @@
 local dap = require("dap")
 require('mason-nvim-dap').setup()
--- require("dap-lldb").setup({
---     codelldb_path = "C:/Users/danie/AppData/Local/nvim-data/mason/packages/codelldb/extension/adapter/codelldb.exe"
--- })
 
--- C/C++
--- dap.adapters.codelldb = {
---     name = "codelldb server",
---     type = 'server',
---     port = "${port}",
---     executable = {
---         command = "C:\\Users\\danie\\AppData\\Local\\nvim-data\\mason\\bin\\codelldb.cmd",
---         args = { "--port", "${port}" },
---     }
--- }
--- dap.configurations.cpp = {
---     {
---         name = "cpp",
---         type = "codelldb",
---         request = "launch",
---         program = function()
---             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
---         end,
---         cwd = '${workspaceFolder}',
---         externalTerminal = false,
---         stopOnEntry = false,
---         args = {}
---     },
--- }
---
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
-  command = 'C:/Users/danie/AppData/Local/nvim-data/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7.exe',
-  options = {
-    detached = false
-  }
+  command =  '/home/daniel/.local/share/nvim/mason/bin/OpenDebugAD7',
 }
+
 dap.configurations.cpp = {
   {
     name = "Launch file",
@@ -47,6 +17,7 @@ dap.configurations.cpp = {
     end,
     cwd = '${workspaceFolder}',
     stopAtEntry = true,
+    MIDebuggerPath = '/usr/bin/gdb',
   },
   {
     name = 'Attach to gdbserver :1234',
@@ -54,7 +25,7 @@ dap.configurations.cpp = {
     request = 'launch',
     MIMode = 'gdb',
     miDebuggerServerAddress = 'localhost:1234',
-    miDebuggerPath = '/usr/bin/gdb',
+    MIDebuggerPath = '/usr/bin/gdb',
     cwd = '${workspaceFolder}',
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')

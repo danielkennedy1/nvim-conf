@@ -26,15 +26,6 @@ vim.cmd [[
 	set clipboard+=unnamedplus
 ]]
 
--- Enable powershell as default shell
-vim.opt.shell = "pwsh.exe -NoLogo"
-vim.opt.shellcmdflag =
-  "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-vim.cmd [[
-		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		set shellquote= shellxquote=
-  ]]
 
 -- Borders for floating windows
 vim.cmd [[
@@ -69,3 +60,8 @@ vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 
 -- Set python privider
 vim.g.python3_host_prog = "C:/Users/danie/AppData/Local/Programs/Python/Python312/python.exe"
+
+vim.cmd [[
+    set signcolumn=yes
+    set cursorline
+]]
