@@ -11,5 +11,5 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
 })
 
 -- Set pylint to work in virtualenv
-require('lint').linters.pylint.cmd = 'python'
-require('lint').linters.pylint.args = {'-m', 'pylint', '-f', 'json'}
+--require('lint').linters.pylint.cmd = 'python'
+--require('lint').linters.pylint.args = {"rcfile=/home/daniel/reuters/.pylintrc"}--, '-f', 'json'}
