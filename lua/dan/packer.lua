@@ -134,4 +134,8 @@ return require('packer').startup(function(use)
         end
     }
     use 'mfussenegger/nvim-lint'
+    use "ravibrock/spellwarn.nvim"
+    use {
+        "lervag/vimtex",
+    }
 end)

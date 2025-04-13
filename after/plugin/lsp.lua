@@ -90,6 +90,8 @@ require("mason").setup {
     }
 }
 
+require("mason-lspconfig").setup()
+
 vim.filetype.add {
   pattern = {
     ['.*%.ya?ml'] = 'yaml.openapi',
@@ -112,15 +114,20 @@ require("lspconfig").pyright.setup({
     }
 )
 
-require("lspconfig").vacuum.setup({})
+--require("lspconfig").vacuum.setup({})
 
-require("lspconfig").terraformls.setup({})
-vim.api.nvim_create_autocmd({"BufWritePre"}, {
-  pattern = {"*.tf", "*.tfvars"},
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
+--require("lspconfig").terraformls.setup({})
+--vim.api.nvim_create_autocmd({"BufWritePre"}, {
+--  pattern = {"*.tf", "*.tfvars"},
+--  callback = function()
+--    vim.lsp.buf.format()
+--  end,
+--})
+--
+require("lspconfig").texlab.setup({})
+
+require('lspconfig').gopls.setup{}
+
 
 require("mason-lspconfig").setup({
     handlers = {
