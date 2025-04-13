@@ -61,3 +61,11 @@ vim.opt.termguicolors = true
 vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 
 vim.opt.cursorline = true
+
+-- openapi specs are yaml
+vim.filetype.add {
+  pattern = {
+    ['.*%.ya?ml'] = 'yaml.openapi',
+    ['.*%.json'] = 'json.openapi',
+  },
+}

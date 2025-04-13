@@ -1,34 +1,5 @@
 local dap = require("dap")
-require('mason-nvim-dap').setup()
--- require("dap-lldb").setup({
---     codelldb_path = "C:/Users/danie/AppData/Local/nvim-data/mason/packages/codelldb/extension/adapter/codelldb.exe"
--- })
 
--- C/C++
--- dap.adapters.codelldb = {
---     name = "codelldb server",
---     type = 'server',
---     port = "${port}",
---     executable = {
---         command = "C:\\Users\\danie\\AppData\\Local\\nvim-data\\mason\\bin\\codelldb.cmd",
---         args = { "--port", "${port}" },
---     }
--- }
--- dap.configurations.cpp = {
---     {
---         name = "cpp",
---         type = "codelldb",
---         request = "launch",
---         program = function()
---             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
---         end,
---         cwd = '${workspaceFolder}',
---         externalTerminal = false,
---         stopOnEntry = false,
---         args = {}
---     },
--- }
---
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
