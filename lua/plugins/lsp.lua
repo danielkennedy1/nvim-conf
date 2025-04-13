@@ -1,7 +1,6 @@
 return {
     {
         'VonHeikemen/lsp-zero.nvim',
-        -- You can specify branch if needed
         -- branch = 'v2.x',
         dependencies = {
             -- LSP Support
@@ -26,17 +25,11 @@ return {
             {'williamboman/mason-lspconfig.nvim', lazy = true},
         },
         config = function()
-            -- Copy your LSP setup from after/plugin/lsp.lua
-            -- Example:
             local lsp = require('lsp-zero')
-
-            -- Configure your language servers here
 
             lsp.setup()
 
-            -- Setup nvim-cmp
             local cmp = require('cmp')
-            -- Your cmp config here
             cmp.setup({
                 sources = {
                     { name = 'nvim_lsp' },
@@ -85,6 +78,4 @@ return {
           })
         end,
     },
-
-    -- If you have any additional LSP-related plugins, add them here
 }

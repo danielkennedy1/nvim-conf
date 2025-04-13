@@ -1,5 +1,5 @@
+-- FIXME: These could be interfering with one another
 return {
-    -- Status line
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -46,7 +46,6 @@ return {
             }
         end
     },
-
     {
         "SmiteshP/nvim-navic",
         name = "navic",
@@ -98,8 +97,6 @@ return {
         end,
 
     },
-
-    -- Code context display
     {
         "utilyre/barbecue.nvim",
         name = "barbecue",
@@ -113,8 +110,6 @@ return {
             })
         end,
     },
-
-    -- Which key for keybinding help
     {
         "folke/which-key.nvim",
         event = "VeryLazy", -- Load after startup

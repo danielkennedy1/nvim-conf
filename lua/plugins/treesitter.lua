@@ -5,9 +5,7 @@ return {
     -- Load when needed, but not at startup
     -- event = { "BufReadPost", "BufNewFile" },
     config = function()
-      -- Copy your treesitter setup from after/plugin/treesitter.lua
       require('nvim-treesitter.configs').setup({
-        -- Your treesitter config here
         ensure_installed = { "lua", "vim", "vimdoc", "javascript", "typescript", "python" }, -- Add languages you use
         sync_install = true,
         auto_install = true,
@@ -17,14 +15,12 @@ return {
         },
         indent = { enable = true },
       })
-
-
       require 'nvim-treesitter.install'.compilers = { "gcc" }
     end
   },
   {
     'nvim-treesitter/playground',
-    cmd = "TSPlaygroundToggle", -- Only load when the command is used
+    cmd = "TSPlaygroundToggle",
   },
   {
     'windwp/nvim-ts-autotag',

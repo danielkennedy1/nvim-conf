@@ -1,12 +1,7 @@
 return {
-  -- Terminal integration
   {
     "akinsho/toggleterm.nvim",
     version = "*",
-    keys = {
-      { "<c-\\>", desc = "Toggle Terminal" },
-    },
-    cmd = { "ToggleTerm", "TermExec" }, -- Load on these commands
     config = function()
         local HEIGHT_RATIO = 0.8 -- You can change this
         local WIDTH_RATIO = 0.8  -- You can change this too
@@ -26,19 +21,17 @@ return {
 
             size = 20,
             open_mapping = [[<c-\>]],
-            hide_numbers = true, -- hide the number column in toggleterm buffers
+            hide_numbers = true,
             shade_filetypes = {},
             shade_terminals = true,
-            shading_factor = 2, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+            shading_factor = 2,
             start_in_insert = true,
-            insert_mappings = true, -- whether or not the open mapping applies in insert mode
+            insert_mappings = true,
             terminal_mappings = true,
             persist_size = false,
-            -- direction = 'vertical' | 'horizontal' | 'window' | 'float',
             direction = "float",
-            close_on_exit = true, -- close the terminal window when the process exits
-            shell = nil, -- change the default shell
-            -- This field is only relevant if direction is set to 'float'
+            close_on_exit = true,
+            shell = nil,
             float_opts = {
                 border = "curved",
                 row = center_y,
@@ -53,7 +46,8 @@ return {
                 },
             }
         }
-        -- Giving myself 3 terminals
+
+        -- 3 terminals
         vim.keymap.set({"n", "t"}, "<M-1>", "<cmd>lua require('toggleterm').toggle(1)<CR>", { noremap = true, silent = true })
         vim.keymap.set({"n", "t"}, "<M-2>", "<cmd>lua require('toggleterm').toggle(2)<CR>", { noremap = true, silent = true })
         vim.keymap.set({"n", "t"}, "<M-3>", "<cmd>lua require('toggleterm').toggle(3)<CR>", { noremap = true, silent = true })

@@ -22,7 +22,6 @@ return {
                   function(server_name)
                       require('lspconfig')[server_name].setup({
                           on_attach = function(client, bufnr)
-                              -- Navic - tells you where you are in the code. Admittedly no idea if its working
                               if client.server_capabilities.documentSymbolProvider then
                                   navic.attach(client, bufnr)
                               end

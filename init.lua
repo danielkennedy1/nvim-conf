@@ -6,35 +6,31 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Import your base configuration
 require("dan")
 
--- Set leader key before lazy
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Setup Lazy
 require("lazy").setup("plugins", {
   change_detection = {
-    -- automatically check for config file changes and reload
     enabled = true,
-    notify = false, -- get a notification when changes are found
+    notify = true,
   },
   checker = {
-    -- check for plugin updates
     enabled = true,
-    frequency = 86400, -- check once a day
+    frequency = 86400,
     notify = false,
   },
   performance = {
     rtp = {
       disabled_plugins = {
+        -- TODO: Find out what the story is with these
         "gzip",
         "matchit",
         "matchparen",
@@ -47,3 +43,5 @@ require("lazy").setup("plugins", {
     },
   },
 })
+
+fixbg()
