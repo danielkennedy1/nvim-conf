@@ -1,25 +1,25 @@
 -- Line numbers
 vim.api.nvim_exec(
-	[[
+    [[
 		set number
 	]],
-	false
-	)
+    false
+)
 -- set relative line numbers appropriately (outside insert mode)
 vim.api.nvim_exec(
-        [[
+    [[
           augroup NumToggle
             autocmd!
             autocmd InsertEnter * set norelativenumber
             autocmd InsertLeave * set relativenumber
           augroup END
-          
+
           " Optionally set relative numbers for specific modes
           autocmd BufEnter,FocusGained,InsertLeave * if &buftype != 'terminal' | set relativenumber | endif
           autocmd BufLeave,FocusLost,InsertEnter * if &buftype != 'terminal' | set norelativenumber | endif
         ]],
-        false
-      )
+    false
+)
 
 -- Use system clipboard
 vim.cmd [[
@@ -64,8 +64,8 @@ vim.opt.cursorline = true
 
 -- openapi specs are yaml
 vim.filetype.add {
-  pattern = {
-    ['.*%.ya?ml'] = 'yaml.openapi',
-    ['.*%.json'] = 'json.openapi',
-  },
+    pattern = {
+        ['.*%.ya?ml'] = 'yaml.openapi',
+        ['.*%.json'] = 'json.openapi',
+    },
 }

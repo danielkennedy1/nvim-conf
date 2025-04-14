@@ -1,21 +1,21 @@
 return {
-  {
-    "theprimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      local harpoon = require("harpoon")
-      harpoon:setup()
-      
-      vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
-      vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-      
-      vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
-      vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
-      vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
-      vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
-    end,
-  },
+    {
+        "theprimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            local harpoon = require("harpoon")
+            harpoon:setup()
+
+            vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+            vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+            vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+            vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
+            vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
+            vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
+        end,
+    },
     {
         "nvim-tree/nvim-tree.lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -23,8 +23,8 @@ return {
         cmd = { "NvimTreeToggle", "NvimTreeFindFile", "NvimTreeFocus" },
         -- Load when these keys are pressed
         keys = {
-            { "-", "<cmd>NvimTreeToggle<CR>", desc = "Toggle File Explorer" },
-            { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Toggle File Explorer" },
+            { "-",         "<cmd>NvimTreeToggle<CR>",   desc = "Toggle File Explorer" },
+            { "<leader>e", "<cmd>NvimTreeToggle<CR>",   desc = "Toggle File Explorer" },
             { "<leader>E", "<cmd>NvimTreeFindFile<CR>", desc = "Find File in Explorer" },
         },
         config = function()
@@ -84,7 +84,7 @@ return {
                             local window_h_int = math.floor(window_h)
                             local center_x = (screen_w - window_w) / 2
                             local center_y = ((vim.opt.lines:get() - window_h) / 2)
-                            - vim.opt.cmdheight:get()
+                                - vim.opt.cmdheight:get()
                             return {
                                 border = "rounded",
                                 relative = "editor",
