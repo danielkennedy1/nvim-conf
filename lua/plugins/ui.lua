@@ -1,52 +1,6 @@
 -- FIXME: These could be interfering with one another
 return {
     {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function()
-            require('lualine').setup {
-                options = {
-                    icons_enabled = true,
-                    theme = 'auto',
-                    component_separators = { left = '', right = '' },
-                    section_separators = { left = '', right = '' },
-                    disabled_filetypes = {
-                        statusline = {},
-                        winbar = {},
-                    },
-                    ignore_focus = {},
-                    always_divide_middle = true,
-                    globalstatus = false,
-                    refresh = {
-                        statusline = 1000,
-                        tabline = 1000,
-                        winbar = 1000,
-                    }
-                },
-                sections = {
-                    lualine_a = { 'mode' },
-                    lualine_b = { 'branch', 'diagnostics' },
-                    lualine_c = {},
-                    lualine_x = { 'filetype' },
-                    lualine_y = { 'progress' },
-                    lualine_z = { 'location' }
-                },
-                inactive_sections = {
-                    lualine_a = {},
-                    lualine_b = {},
-                    lualine_c = { 'filename' },
-                    lualine_x = { 'location' },
-                    lualine_y = {},
-                    lualine_z = {}
-                },
-                tabline = {},
-                winbar = {},
-                inactive_winbar = {},
-                extensions = {}
-            }
-        end
-    },
-    {
         "SmiteshP/nvim-navic",
         name = "navic",
         config = function()
@@ -106,19 +60,17 @@ return {
         },
         config = function()
             require("barbecue").setup({
-                attach_navic = false,
+                attach_navic = true,
             })
         end,
     },
     {
         "folke/which-key.nvim",
-        event = "VeryLazy", -- Load after startup
+        event = "VeryLazy",
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 800
-            require("which-key").setup({
-                -- Your which-key config here
-            })
+            require("which-key").setup({})
         end,
     },
 }
