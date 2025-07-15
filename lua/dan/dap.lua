@@ -1,14 +1,14 @@
 local dap = require("dap")
 
-dap.adapters.cppdbg = {
-    id = 'cppdbg',
-    type = 'executable',
-    command =
-    'C:/Users/danie/AppData/Local/nvim-data/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7.exe',
-    options = {
-        detached = false
-    }
-}
+--dap.adapters.cppdbg = {
+--    id = 'cppdbg',
+--    type = 'executable',
+--    command =
+--    'C:/Users/danie/AppData/Local/nvim-data/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7.exe',
+--    options = {
+--        detached = false
+--    }
+--}
 dap.configurations.cpp = {
     {
         name = "Launch file",
@@ -35,27 +35,27 @@ dap.configurations.cpp = {
 }
 
 -- Python
-dap.adapters.python = {
-    type = "executable",
-    command = "C:/Users/danie/.virtualenvs/debugpy/Scripts/python.exe",
-    args = { "-m", "debugpy.adapter" },
-}
-dap.configurations.python = {
-    {
-        type = "python",
-        request = "launch",
-        name = "Launch file",
-        program = "${file}",
-        pythonPath = function()
-            local venv_path = os.getenv("VIRTUAL_ENV")
-            if venv_path then
-                return venv_path .. "/Scripts/python.exe"
-            else
-                return "C:/Users/danie/.virtualenvs/debugpy/Scripts/python.exe"
-            end
-        end,
-    },
-}
+--dap.adapters.python = {
+--    type = "executable",
+--    command = "C:/Users/danie/.virtualenvs/debugpy/Scripts/python.exe",
+--    args = { "-m", "debugpy.adapter" },
+--}
+--dap.configurations.python = {
+--    {
+--        type = "python",
+--        request = "launch",
+--        name = "Launch file",
+--        program = "${file}",
+--        pythonPath = function()
+--            local venv_path = os.getenv("VIRTUAL_ENV")
+--            if venv_path then
+--                return venv_path .. "/Scripts/python.exe"
+--            else
+--                return "C:/Users/danie/.virtualenvs/debugpy/Scripts/python.exe"
+--            end
+--        end,
+--    },
+--}
 
 
 -- Keybindings

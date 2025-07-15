@@ -6,7 +6,7 @@ return {
         -- event = { "BufReadPost", "BufNewFile" },
         config = function()
             require('nvim-treesitter.configs').setup({
-                ensure_installed = { "lua", "vim", "vimdoc", "javascript", "typescript", "python" }, -- Add languages you use
+                ensure_installed = { "lua", "vim", "vimdoc", "javascript", "typescript", "python" },
                 sync_install = true,
                 auto_install = true,
                 highlight = {
