@@ -23,6 +23,9 @@ return {
         'mfussenegger/nvim-lint',
         event = { "BufReadPre", "BufNewFile" },
         config = function()
+            if (vim.env.VIRTUAL_ENV ~= nil) then
+                require('lint').linters.pylint.cmd = vim.env.VIRTUAL_ENV .. "/bin/pylint"
+            end
             require('lint').linters_by_ft = {
                 python = { 'pylint' }
             }
