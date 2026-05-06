@@ -83,6 +83,7 @@ return {
                 -- NOTE: Here's note
                 -- TEST: Here's test
                 -- MAYBE: Here's maybe
+                -- DIRT: Here's dirt
                 signs = true,
                 sign_priority = 8,
                 keywords = {
@@ -140,5 +141,23 @@ return {
                 },
             }
         end,
+    },
+    {
+        "ThePrimeagen/refactoring.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        lazy = false,
+        opts = {},
+        keys = {
+            {
+                "<leader>le", -- NOTE: 
+                function() return require('refactoring').refactor('Extract Function') end,
+                mode = "x",
+                expr = true,
+                desc = "Extract Function",
+            },
+        },
     },
 }

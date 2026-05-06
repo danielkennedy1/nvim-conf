@@ -1,5 +1,11 @@
 local dap = require("dap")
 
+dap.adapters.gdb = {
+    type = "executable",
+    command = "gdb",
+    args = { "-i", "dap" }
+}
+
 --dap.adapters.cppdbg = {
 --    id = 'cppdbg',
 --    type = 'executable',
