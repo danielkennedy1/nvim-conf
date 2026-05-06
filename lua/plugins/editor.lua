@@ -147,12 +147,13 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
+            "lewis6991/async.nvim",
         },
         lazy = false,
         opts = {},
         keys = {
             {
-                "<leader>le", -- NOTE: 
+                "<leader>le", -- NOTE: Not strictly LSP i guess
                 function() return require('refactoring').refactor('Extract Function') end,
                 mode = "x",
                 expr = true,
